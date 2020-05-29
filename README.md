@@ -16,3 +16,14 @@ HTML<head>部分常用的charset被设置为UTF-8等。 UTF-8和Unicode不同，
 - head中加载CSS文件和字体库等库文件，但不要加载JS文件，JS文件一般放在Body里，且在最后面。浏览器加载页面是按从上到下顺序加载的。加载 JS 并执行的时候，会阻塞其他资源的加载。这是因为JS 可能会有 DOM 、样式等等操作，所以浏览器要先加载这段 JS 并执行，再加载放在它后面的 HTML、CSS。因此，加入一段    巨大的 JS 放在最上面，浏览器首先要下载并执行，这段时间里面，页面是空白的。所以要避免这种情况发生。
 - i /i 用于设置button的图标。
 
+## JavaScript Technical Summary
+*Chinese Version*
+- 注意全局变量的使用， 可以先声明并用于后面的函数中
+- DON'T REPEAT YOURSELF 重复性代码写到一个函数里，用的时候直接调用即可
+- 注意元素侦听事件时有匿名函数和非匿名函数两种，匿名函数即作为DOM形参的的函数，不可被其他域调用，因为没有名字；而非匿名函数和普通函数一样，要先声明好，之后在DOM调用时直接传入名字即可。
+- DOM元素的提取可以使用document.querySelector() 或者 document.getElementByID(),后者更快，优先使用。
+- DOM元素提取后可以继续对其操作，常用的方法如
+  1. classlist 主要用于切换同一元素的CSS样式 方法有add\remove\toggle(有的话删除，无的话添加)
+  2. style 主要用于CSS属性的重写 方法有display等
+  3. addEventLisener 主要用于添加事件侦听 一般用在按钮上
+  4. textContent 主要负责修改元素文本内容
